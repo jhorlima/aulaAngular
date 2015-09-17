@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="AulaAngular">
+    <head>
+        <!-- Folha de estilo do Materialize -->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+        <!-- Folha de estilo da aplicação -->
+        <link type="text/css" rel="stylesheet" href="css/app.css" media="screen,projection"/>
+        <!-- Título da página dinâmico -->
+        <title>{{page.title}}</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8">
+
+        <!-- Framework Angular -->
+        <script src="js/lib/angular/angular.min.js"></script>
+        <!-- Modulo para tratamento de rotas do angular -->
+        <script src="js/lib/angular/angular-route.min.js"></script>
+        <!-- Módulo para definir as regras do angular para o padrão do brasil, tipo o formato de data dd/mm/aaaa -->
+        <script src="js/lib/angular/angular-locale_pt-br.js" ></script>
+        <!-- Módulo para lançar o modal pelo angular -->
+        <script src="js/lib/angular/angular-modal-service.js" ></script>
+
+    </head>
+
+    <body>
+
+        <!-- Carregar menu através de uma diretiva -->
+        <header class="navbar-fixed" nav-menu></header>
+
+        <!-- Carregar View de acordo com a rota -->
+        <main ng-view></main>
+
+        <!-- Rodapé -->
+        <footer class="page-footer transparent">
+            <div class="footer-copyright transparent">
+                <div class="container grey-text text-darken-2 center">
+                    © 2015 Jhordan Lima
+                </div>
+            </div>
+        </footer>
+
+        <!-- Carregar Aplicação Angular -->
+        <script type="text/javascript" src="js/app/app.js"></script>
+        <script type="text/javascript" src="js/app/directives.js"></script>
+        <script type="text/javascript" src="js/app/service.js"></script>
+        <script type="text/javascript" src="js/app/controllers.js"></script>
+
+        <!-- Carregar Bibliotecas do Jquery e Materialize -->
+        <script type="text/javascript" src="js/lib/jquery.js"></script>
+        <script type="text/javascript" src="js/lib/materialize.min.js"></script>
+
+    </body>
+</html>

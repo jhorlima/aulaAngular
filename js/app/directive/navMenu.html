@@ -1,0 +1,50 @@
+<nav class="gradienteBg z-depth-1">
+
+    <div class="nav-wrapper">
+
+        <a href="#/" class="brand-logo">Aula Angular</a>
+        <a data-activates="mobile-demo" class="button-collapse">
+            <i class="material-icons">menu</i>
+        </a>
+
+        <ul class="right hide-on-med-and-down">
+            <li ng-class="isTabActive('InicioController')">
+                <a href="#/inicio">
+                    <i class="material-icons right">dashboard</i>
+                    Ínicio
+                </a>
+            </li>
+            <li ng-class="isTabActive('TarefasController')">
+                <a href="#/tarefas">
+                    <i class="material-icons right">view_list</i>
+                    Tarefas
+                </a>
+            </li>
+            <li ng-class="isTabActive('NotasController')">
+                <a href="#/notas">
+                    <i class="material-icons right">note_add</i>
+                    Notas
+                </a>
+            </li>
+        </ul>
+
+        <ul class="side-nav" id="mobile-demo">
+            <li ng-class="isTabActive('InicioController')">
+                <a href="#/inicio">
+                    Ínicio
+                </a>
+            </li>
+            <li ng-class="isTabActive('TarefasController')">
+                <a href="#/tarefas">
+                    Tarefas
+                </a>
+            </li>
+            <li ng-class="isTabActive('NotasController')">
+                <a href="#/notas">
+                    Notas
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</nav>

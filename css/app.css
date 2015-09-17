@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url('../font/material-design-icons/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2') format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    word-wrap: normal;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    background:
+    linear-gradient( rgba(50,205,50,0.5), transparent ),
+    linear-gradient( 90deg, rgba(135,206,235,0.5), transparent ),
+    linear-gradient( -90deg, rgba(255, 187, 157, 0.5), transparent );
+    background-blend-mode: screen;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.gradienteBg {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,28a5d3+99 */
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(left,  #1e5799 0%, #28a5d3 99%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#1e5799), color-stop(99%,#28a5d3)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #1e5799 0%,#28a5d3 99%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #1e5799 0%,#28a5d3 99%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #1e5799 0%,#28a5d3 99%); /* IE10+ */
+    background: linear-gradient(to right,  #1e5799 0%,#28a5d3 99%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#28a5d3',GradientType=1 ); /* IE6-8 */
+
+}
+
+nav .brand-logo{
+   padding-left: 1%;
+}
+
+.parallax-container {
+    height: 380px;
+}
+
+.sectionBase{
+    padding-top: 1%;
+}
+
+.titlePage{
+    color: rgb(68, 70, 72);
+}
+
+.fixed-action-btn{
+    bottom: 45px;
+    right: 24px;
+}
+
+.tarefaConcluida{
+    text-decoration: line-through;
+}

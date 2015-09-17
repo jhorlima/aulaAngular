@@ -1,0 +1,136 @@
+<!-- Modal da página -->
+<script type="text/ng-template" id="formTarefa">
+
+    <div class="modal">
+
+        <div class="modal-content">
+
+            <div class="row">
+
+                <h4>{{tarefa.acao}} Tarefa</h4>
+
+                <form class="input-field col s12">
+                    <i class="material-icons prefix">view_list</i>
+                    <input id="tarefaPrefix" type="text" class="validate"
+                           ng-model="tarefa.nome" ng-maxlength="20" ng-minlength="1">
+                    <label for="tarefaPrefix" class="active">Nome da tarefa</label>
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button ng-click="close(true)" class="modal-action waves-effect waves-green btn-flat">{{tarefa.acao}}</button>
+            <button ng-click="close()" class="modal-action waves-effect waves-red btn-flat">Cancelar</button>
+        </div>
+
+    </div>
+
+</script>
+
+<!--Conteudo da página-->
+<section class="sectionBase container">
+
+    <div class="row">
+
+        <h3 class="center titlePage">Lista de tarefas</h3>
+
+        <div class="col s12">
+            <nav class="transparent z-depth-1">
+                <div class="nav-wrapper">
+                    <div class="input-field">
+                        <input id="search" type="search" ng-model="busca" required>
+                        <label for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons" ng-click="limparBusca()">close</i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col s12 m6"
+             ng-repeat="tarefa in listaTarefas | orderBy: '-data' | filter: busca as resultado track by $index"
+             ng-init="indexTemp = $index">
+
+            <div class="card blue-grey darken-4">
+
+                <div class="card-content white-text">
+
+                    <span class="card-title">{{ tarefa.nome | limitTo: 20 }}</span>
+
+                    <ul class="collection">
+
+                        <li class="collection-item card blue-grey darken-4 hoverable"
+                            ng-repeat="item in tarefa.itens | orderBy: 'data' track by $index">
+
+                            <p>
+
+                                <input type="checkbox" id="{{indexTemp}}_{{$index}}"
+                                       ng-model="item.concluido" ng-click="salvarTarefas()"/>
+
+                                <label for="{{indexTemp}}_{{$index}}"
+                                       class="white-text" ng-class="foiConcluida( item )">{{ item.nome | limitTo: 20 }}</label>
+
+                                <a class="secondary-content" ng-click="apagarItem(tarefa,item)">
+                                    <i class="material-icons red-text darken-4">delete</i>
+                                </a>
+
+                            </p>
+
+                        </li>
+
+                        <li class="collection-item card blue-grey darken-4 hoverable">
+                            <form ng-submit="submit()">
+                                <div class=" col s10">
+                                    <div class="input-field">
+                                        <input id="icon_prefix" type="text" class="validate"
+                                               ng-model="tarefa.itemNovo" ng-maxlength="20" ng-minlength="1">
+                                        <label for="icon_prefix">Nome do item</label>
+                                    </div>
+                                </div>
+                                <div class=" col s2">
+                                    <div class="input-field">
+                                        <a class="btn-floating" ng-click="adicionarItem(tarefa)">
+                                            <i class="material-icons">add</i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+
+                    </ul>
+
+                    <em class="right">{{tarefa.data | date: "dd/MM/yyyy 'às' HH:mm"}}</em>
+
+                </div>
+
+                <div class="card-action">
+                    <a ng-click="obterModal(tarefa)">Editar Tarefa</a>
+                    <a ng-click="apagarTarefa(tarefa)">Excluir</a>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col s12" ng-if="resultado.length == 0">
+            <em class="center-align">
+                Nenhuma tarefa foi encontrada
+                <span ng-if="busca != ''"> com <strong>{{busca}}</strong></span>.
+            </em>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Botão flutuante-->
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red" ng-click="obterModal()">
+        <i class="large material-icons">add</i>
+    </a>
+</div>
