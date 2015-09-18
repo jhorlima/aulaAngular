@@ -23,13 +23,13 @@ angularApp.controller( 'TarefasController', function( $scope, $rootScope, ModalS
 
     $scope.listaTarefas = TarefasService.getListaTarefasLocal();
 
-    $scope.adicionarTarefa = function( tarefa ){
+    var adicionarTarefa = function( tarefa ){
         if( !angular.isUndefined( tarefa.nome ) )
             TarefasService.postNovaTarefa( $scope.listaTarefas, tarefa );
         $scope.salvarTarefas();
     };
 
-    $scope.atualizarTarefa = function( tarefa ){
+    var atualizarTarefa = function( tarefa ){
         if( !angular.isUndefined( tarefa.nome ) )
             TarefasService.postAtualizarTarefa( $scope.listaTarefas, tarefa );
         $scope.salvarTarefas();
@@ -74,10 +74,10 @@ angularApp.controller( 'TarefasController', function( $scope, $rootScope, ModalS
             modal.close.then( function( tarefa ) {
 
                 if( tarefa.submit && tarefa.acao == "Adicionar" )
-                    $scope.adicionarTarefa( tarefa );
+                    adicionarTarefa( tarefa );
 
                 else if( tarefa.submit && tarefa.acao == "Atualizar" )
-                    $scope.atualizarTarefa( tarefa );
+                    atualizarTarefa( tarefa );
 
                 modal.element.closeModal();
             });
@@ -126,13 +126,13 @@ angularApp.controller( 'NotasController', function( $scope, $rootScope, ModalSer
 
     $scope.listaNota = NotasService.getListaNotaLocal();
 
-    $scope.adicionarNota = function( nota ){
+    var adicionarNota = function( nota ){
         if( !angular.isUndefined( nota.nome ) && !angular.isUndefined( nota.conteudo ) )
             NotasService.postNovaNota( $scope.listaNota, nota );
         $scope.salvarNota();
     };
 
-    $scope.atualizarNota = function( nota ){
+    var atualizarNota = function( nota ){
         if( !angular.isUndefined( nota.nome ) && !angular.isUndefined( nota.conteudo ) )
             NotasService.postAtualizarNota( $scope.listaNota, nota );
         $scope.salvarNota();
@@ -161,10 +161,10 @@ angularApp.controller( 'NotasController', function( $scope, $rootScope, ModalSer
             modal.close.then( function( nota ) {
 
                 if( nota.submit && nota.acao == "Adicionar" )
-                    $scope.adicionarNota( nota );
+                    adicionarNota( nota );
 
                 else if( nota.submit && nota.acao == "Atualizar" )
-                    $scope.atualizarNota( nota );
+                    atualizarNota( nota );
 
                 modal.element.closeModal();
             });
