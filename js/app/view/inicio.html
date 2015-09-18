@@ -31,7 +31,7 @@
                             <p><strong>Padrão de desenvolvimento:</strong><br>
                                 Você pode desenvolver uma aplicação MVC com AngularJS. </p>
                             <p><strong>Validação de Form Client-side:</strong><br>
-                                Com angular é muito simples validar um formulário antes de enviar com suas diretivas. </p>
+                                Com angular é muito simples validar um formulário antes de submeter. </p>
 
                         </section>
 
@@ -47,31 +47,32 @@
                 <div class="col l4 m4 s6">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input value="Alvin" id="first_name2" type="text" class="validate"  ng-model='nomeInicio'>
-                            <label class="active" for="first_name2">Teste do Angular</label>
+                            <input id="angularjs" type="text"  ng-model='nomeInicio'>
+                            <label class="active" for="angularjs">Teste do Angular</label>
 
                             Input: {{nomeInicio}}
                         </div>
                     </div>
-                    <pre>&lt;div class=&quot;input-field col s12&quot;&gt;
-&lt;input value=&quot;Alvin&quot; id=&quot;first_name2&quot; type=&quot;text&quot; class=&quot;validate&quot; ng-model=&#39;nomeInicio&#39;&gt;
-&lt;label class=&quot;active&quot; for=&quot;first_name2&quot;&gt;Teste do Angular&lt;/label&gt;
-Input: { {nomeInicio} }
-&lt;/div&gt;
-                    </pre>
                 </div>
                 <hr>
                 <div>
                     <div class="col l8 m8 s12">
 
+                    <pre>&lt;div class=&quot;input-field col s12&quot;&gt;
+    &lt;input id=&quot;angularjs&quot; type=&quot;text&quot; ng-model=&#39;nomeInicio&#39;&gt;
+    &lt;label class=&quot;active&quot; for=&quot;angularjs&quot;&gt;Teste do Angular&lt;/label&gt;
+    Input: { {nomeInicio} }
+&lt;/div&gt;
+                    </pre>
+
                         <section >
 
                             <h4>Entendendo o AngularJS</h4>
                             <p><strong>Porque usar? </strong><br>
-                                Certas aplicações tem como principal característica a alta complexidade e dinamismo de suas páginas HTML, fazendo com que parte da lógica seja empurrada para o Cliente(Javascript). Esses tipos de aplicação necessitam de uma maior organização do código no front-end e o AngularJS consegue realizar essa tarefa muito bem, permitindo que você quebre o seu código em partes, separando assim suas responsabilidades. Além de contar com Two-Way Data Binding e incentivar o uso de Dependency Injection.</p>
+                                Certas aplicações tem como principal característica a alta complexidade e dinamismo de suas páginas HTML, fazendo com que parte da lógica seja empurrada para o Cliente(Javascript). Esses tipos de aplicação necessitam de uma maior organização do código no front-end e o AngularJS consegue realizar essa tarefa muito bem, permitindo que você quebre o seu código em partes, separando assim suas responsabilidades. Além de incentivar o uso de Dependency Injection.</p>
                             <hr>
                             <p><strong>Componentes:</strong><br>
-                                Podemos dizer que o AngularJs é composto de: -Módulos -Diretivas -Controllers -Services -Routes</p>
+                                Podemos dizer que o AngularJs é composto de: -Módulos -Controllers -Services -Diretivas -Filtros</p>
                             <hr>
 
                             <p><strong>Módulos</strong><br>
@@ -81,7 +82,7 @@ Input: { {nomeInicio} }
                             <hr>
 
                             <p><strong>Controllers</strong><br>
-                                Segundo a documentação oficial o Controller é o comportamento por trás do DOM e é também responsável por inicializar e/ou adicionar comportamentos ao objeto <strong>$scope</strong>, o qual permite a comunicação entre a View e o seu Controller. A diretiva <strong>ng-controller</strong> é utilizada para definir em qual parte do documento HTML ele será utilizado.<br>
+                                Segundo a documentação oficial o Controller é o comportamento por trás do DOM e é também responsável por inicializar e/ou adicionar comportamentos ao objeto <strong>$scope</strong>, o qual permite a comunicação entre a View e o seu Controller. A diretiva <strong>ng-controller</strong> é utilizada para definir em qual parte do documento HTML ele será utilizado. <br> Ex: angularApp.controller( 'TarefasController', function( $scope ) { //Conteudo da controle });
 
                             </p>
                             <hr>
@@ -101,6 +102,7 @@ Input: { {nomeInicio} }
                                 A diretiva <strong>ng-class</strong> permite adicionar uma classe dinamicamente no elemento por meio de uma expressão. &lt;li&gt;&lt;a ng-click=&quot;tab=1&quot; ng-class=&quot;{&#39;active&#39; : tab==1}&quot;&gt;Aba 1&lt;/a&gt;&lt;/li&gt;  . O valor que adicionamos ali é uma condicional: {'active' : tab==1}. Adicione a classe active se a variável tab for igual a 1.<br><br>
                                 A diretiva <strong>ng-show e ng-hide</strong> mostra ou esconde o elemento baseado em alguma expressão ou condicional.<br><br>
                                 A diretiva <strong>ng-repeat</strong>  recebe como parâmetro uma expressão de repetição que controla quantas vezes a tag onde ela esta definida será renderizada. <br><br>
+                                A diretiva <strong>ng-if</strong> permite fazer condições com as tags do HTML<br><br>
                                 A diretiva <strong>ng-init</strong> permite avaliar e modificar uma expressão dentro de um determinado escopo.<br><br>
                                 A diretiva <strong>ng-model</strong> permite que um input possa receber ou alterar o valor do atributo.<br><br>
                                 A diretiva <strong>ng-submit</strong> permite chama um método quando há um submit no form.
@@ -114,6 +116,15 @@ Input: { {nomeInicio} }
                                 Um filtro formata o valor de uma expressão para exibição para o utilizador. Eles podem ser usados ​​em modelos de visão, controladores ou serviços e é fácil de definir o seu próprio filtro.                                . <br><br>
                             </p>
 
+                            <hr>
+
+                            <p><strong>Mais sobre angular</strong><br>
+                                Segue abaixo uma excelente playlist de AngularJs. <br><br>
+                            <div class="video-container no-controls">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/RiB0TXOhd3U?list=PLWytY2Ghb8blLM9v1nMoAnDPK7KQp0-DC" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            </p>
+
                         </section>
 
                     </div>
@@ -122,6 +133,8 @@ Input: { {nomeInicio} }
                 </div>
 
             </article>
+
+
 
 
         </div>
