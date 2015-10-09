@@ -2,7 +2,7 @@
 var angularApp = angular.module( 'AulaAngular', [ 'ngRoute', 'angularModalService' ] );
 
  // Configuração das rotas
-angularApp.config([ '$routeProvider', function( $routeProvider ) {
+angularApp.config( function( $routeProvider ) {
 
     $routeProvider.when( '/inicio' , { templateUrl: './js/app/view/inicio.html'  , controller: 'InicioController' })
                   .when( '/tarefas', { templateUrl: './js/app/view/tarefas.html' , controller: 'TarefasController'})
@@ -11,14 +11,14 @@ angularApp.config([ '$routeProvider', function( $routeProvider ) {
                   .otherwise({ redirectTo: '/inicio' });
   }
 
-]);
+);
 
 // habilita CORS ( Carregar conteudo externo );
-angularApp.config([ '$httpProvider', function( $httpProvider ) {
+angularApp.config( function( $httpProvider ) {
       $httpProvider.defaults.useXDomain = true;
       delete $httpProvider.defaults.headers.common[ 'X-Requested-With' ];
     }
-]);
+);
 
 // Inicialização
 angularApp.run ( function( $rootScope ) {
