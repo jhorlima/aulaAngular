@@ -1,7 +1,7 @@
 // Diretivas
 
 //Diretiva do menu
-angularApp.directive('navMenu', function ( ) {
+angularApp.directive( 'navMenu', function ( ) {
     return {
         restrict: 'A',
         controller: 'navMenuController',
@@ -10,7 +10,7 @@ angularApp.directive('navMenu', function ( ) {
 });
 
 //Controle da diretiva navMenu
-angularApp.controller("navMenuController", function ( $scope, $route ) {
+angularApp.controller( "navMenuController", function ( $scope, $route ) {
     //Ativar o menu
     $(".button-collapse").sideNav();
 
