@@ -1,7 +1,7 @@
 //Controllers da Aplicação
 
 //Controle da rota inicio
-angularApp.controller( 'InicioController', function( $scope, $rootScope, InicioService ) {
+angularApp.controller( 'InicioController', function( $scope, $rootScope ) {
 
     $('.parallax').parallax();
     $rootScope.page.change( $rootScope.page, "Inicio" );
@@ -16,21 +16,16 @@ angularApp.controller( 'TarefasController', function( $scope, $rootScope, ModalS
     $scope.busca = "";
     $scope.indexTemp = null;
 
-    //TarefasService.getListaTarefas(
-    //    function( data ){ $scope.listaTarefas = data; },
-    //    function( data ){ $scope.listaTarefas = []; console.log( data ); }
-    //);
-
     $scope.listaTarefas = TarefasService.getListaTarefasLocal();
 
     var adicionarTarefa = function( tarefa ){
-        if( !angular.isUndefined( tarefa.nome ) )
+        if( angular.isDefined( tarefa.nome ) )
             TarefasService.postNovaTarefa( $scope.listaTarefas, tarefa );
         $scope.salvarTarefas();
     };
 
     var atualizarTarefa = function( tarefa ){
-        if( !angular.isUndefined( tarefa.nome ) )
+        if( angular.isDefined( tarefa.nome ) )
             TarefasService.postAtualizarTarefa( $scope.listaTarefas, tarefa );
         $scope.salvarTarefas();
     };
@@ -45,7 +40,7 @@ angularApp.controller( 'TarefasController', function( $scope, $rootScope, ModalS
         item.nome = tarefa.itemNovo;
         item.data = new Date().getTime();
 
-        if( !angular.isUndefined( item.nome ) )
+        if( angular.isDefined( item.nome ) )
             TarefasService.postNovoItem( tarefa, item );
 
         $scope.salvarTarefas();
@@ -119,21 +114,16 @@ angularApp.controller( 'NotasController', function( $scope, $rootScope, ModalSer
     $scope.busca = "";
     $scope.indexTemp = null;
 
-    //NotasService.getListaNotas(
-    //    function( data ){ $scope.listaNota = data; },
-    //    function( data ){ $scope.listaNota = []; console.log( data ); }
-    //);
-
     $scope.listaNota = NotasService.getListaNotaLocal();
 
     var adicionarNota = function( nota ){
-        if( !angular.isUndefined( nota.nome ) && !angular.isUndefined( nota.conteudo ) )
+        if( angular.isDefined( nota.nome ) && angular.isDefined( nota.conteudo ) )
             NotasService.postNovaNota( $scope.listaNota, nota );
         $scope.salvarNota();
     };
 
     var atualizarNota = function( nota ){
-        if( !angular.isUndefined( nota.nome ) && !angular.isUndefined( nota.conteudo ) )
+        if( angular.isDefined( nota.nome ) && angular.isDefined( nota.conteudo ) )
             NotasService.postAtualizarNota( $scope.listaNota, nota );
         $scope.salvarNota();
     };
